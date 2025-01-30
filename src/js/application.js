@@ -18,6 +18,8 @@ class ApplicationManager {
             { id: 'qrsakusei', name: 'QRコード作成', path: 'src/apps/QR1/index.html', icon: '📱', iconType: 'emoji' },
             { id: 'qrsayomikomi', name: 'QRコード読み込み', path: 'src/apps/QR2/index.html', icon: '📱', iconType: 'emoji' },
             { id: 'zip', name: 'ZIP解凍', path: 'src/apps/zip/index.html', icon: '📦', iconType: 'emoji' },
+            { id: 'ojosama', name: 'お嬢様変換器', path: 'src/apps/ojosama/index.html', icon: '🏰', iconType: 'emoji' },
+
 
             { id: 'perplexity', name: 'Perplexity', path: 'https://www.perplexity.ai/', icon: 'src/linkicon/perplexity.png', iconType: 'image', directRedirect: true }
         ];
