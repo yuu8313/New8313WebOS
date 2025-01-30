@@ -33,18 +33,25 @@ class ReactApplicationManager {
                     meta.content = 'text/html; charset=utf-8';
                     iframeDoc.head.appendChild(meta);
 
-                    // スクリプトタグの設定
+                    // スクリプトタグの設定（application/javascript MIMEタイプを指定）
                     const script = document.createElement('script');
-                    script.type = 'module';
+                    script.type = 'application/javascript';
                     script.src = app.path;
+                    script.defer = true;
                     iframeDoc.body.appendChild(script);
 
-                    // CSSの読み込み
+                    // CSSの読み込み（text/css MIMEタイプを指定）
                     const link = document.createElement('link');
                     link.rel = 'stylesheet';
                     link.type = 'text/css';
                     link.href = app.cssPath || `${app.path.replace('.js', '.css')}`;
                     iframeDoc.head.appendChild(link);
+
+                    // Content Security Policyの設定
+                    const csp = document.createElement('meta');
+                    csp.httpEquiv = 'Content-Security-Policy';
+                    csp.content = "default-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';";
+                    iframeDoc.head.appendChild(csp);
 
                     console.log(`React application ${app.name} loaded successfully`);
                 } catch (error) {
@@ -60,6 +67,7 @@ class ReactApplicationManager {
                     <head>
                         <meta charset="utf-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <meta http-equiv="X-Content-Type-Options" content="nosniff">
                     </head>
                     <body>
                         <div id="root"></div>
