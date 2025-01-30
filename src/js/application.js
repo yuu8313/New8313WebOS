@@ -5,23 +5,127 @@
 class ApplicationManager {
     constructor() {
         this.apps = [
-            { id: 'kensaku', name: '8313複合検索エンジン', path: 'src/apps/8313kensaku/index.html', icon: 'src/image/icon1.png', iconType: 'image' },
-            { id: 'dentaku', name: '計算機', path: 'src/apps/keisan/index.html', icon: 'src/image/icon3.png', iconType: 'image' },
-            { id: 'memotyou', name: 'メモ帳', path: 'src/apps/memo/index.html', icon: 'src/image/icon27.png', iconType: 'image' },
-            { id: 'husen', name: '付箋メモ', path: 'src/apps/husen/index.html', icon: '🔖', iconType: 'emoji' },
-            { id: 'ToDo', name: 'ToDoメモ', path: 'src/apps/todo/index.html', icon: '✔', iconType: 'emoji' },
-            { id: 'Chat', name: 'チャットメモ', path: 'src/apps/chat/index.html', icon: '💭', iconType: 'emoji' },
-            { id: 'txtEditor', name: 'エディター', path: 'src/apps/Editor/index.html', icon: 'src/image/icon12.png', iconType: 'image' },
-            { id: 'forudakaisou', name: 'フォルダー階層メモ', path: 'src/apps/folderkaisou/index.html', icon: '📁', iconType: 'emoji' },
-            { id: 'mozisuukauntoandmozitikan', name: 'カウント&置換', path: 'src/apps/mozikaunntoandmozitikan/index.html', icon: 'A', iconType: 'emoji' },
-            { id: 'video', name: 'videoplayer', path: 'src/apps/video/index.html', icon: 'src/image/icon30.png', iconType: 'image' },
-            { id: 'qrsakusei', name: 'QRコード作成', path: 'src/apps/QR1/index.html', icon: '📱', iconType: 'emoji' },
-            { id: 'qrsayomikomi', name: 'QRコード読み込み', path: 'src/apps/QR2/index.html', icon: '📱', iconType: 'emoji' },
-            { id: 'zip', name: 'ZIP解凍', path: 'src/apps/zip/index.html', icon: '📦', iconType: 'emoji' },
-            { id: 'ojosama', name: 'お嬢様変換器', path: 'src/apps/ojousama/index.html', icon: '🏰', iconType: 'emoji' },
-
-
-            { id: 'perplexity', name: 'Perplexity', path: 'https://www.perplexity.ai/', icon: 'src/linkicon/perplexity.png', iconType: 'image', directRedirect: true }
+            { 
+                id: 'kensaku', 
+                name: '8313複合検索エンジン', 
+                path: 'src/apps/8313kensaku/index.html', 
+                icon: 'src/image/icon1.png', 
+                iconType: 'image',
+                type: 'normal'  // 通常のHTML/CSS/JSアプリ
+            },
+            { 
+                id: 'dentaku', 
+                name: '計算機', 
+                path: 'src/apps/keisan/index.html', 
+                icon: 'src/image/icon3.png', 
+                iconType: 'image',
+                type: 'normal'
+            },
+            { 
+                id: 'memotyou', 
+                name: 'メモ帳', 
+                path: 'src/apps/memo/index.html', 
+                icon: 'src/image/icon27.png', 
+                iconType: 'image',
+                type: 'normal'
+            },
+            { 
+                id: 'husen', 
+                name: '付箋メモ', 
+                path: 'src/apps/husen/index.html', 
+                icon: '🔖', 
+                iconType: 'emoji',
+                type: 'normal'
+            },
+            { 
+                id: 'ToDo', 
+                name: 'ToDoメモ', 
+                path: 'src/apps/todo/index.html', 
+                icon: '✔', 
+                iconType: 'emoji',
+                type: 'normal'
+            },
+            { 
+                id: 'Chat', 
+                name: 'チャットメモ', 
+                path: 'src/apps/chat/index.html', 
+                icon: '💭', 
+                iconType: 'emoji',
+                type: 'normal'
+            },
+            { 
+                id: 'txtEditor', 
+                name: 'エディター', 
+                path: 'src/apps/Editor/index.html', 
+                icon: 'src/image/icon12.png', 
+                iconType: 'image',
+                type: 'normal'
+            },
+            { 
+                id: 'forudakaisou', 
+                name: 'フォルダー階層メモ', 
+                path: 'src/apps/folderkaisou/index.html', 
+                icon: '📁', 
+                iconType: 'emoji',
+                type: 'normal'
+            },
+            { 
+                id: 'mozisuukauntoandmozitikan', 
+                name: 'カウント&置換', 
+                path: 'src/apps/mozikaunntoandmozitikan/index.html', 
+                icon: 'A', 
+                iconType: 'emoji',
+                type: 'normal'
+            },
+            { 
+                id: 'video', 
+                name: 'videoplayer', 
+                path: 'src/apps/video/index.html', 
+                icon: 'src/image/icon30.png', 
+                iconType: 'image',
+                type: 'normal'
+            },
+            { 
+                id: 'qrsakusei', 
+                name: 'QRコード作成', 
+                path: 'src/apps/QR1/index.html', 
+                icon: '📱', 
+                iconType: 'emoji',
+                type: 'normal'
+            },
+            { 
+                id: 'qrsayomikomi', 
+                name: 'QRコード読み込み', 
+                path: 'src/apps/QR2/index.html', 
+                icon: '📱', 
+                iconType: 'emoji',
+                type: 'normal'
+            },
+            { 
+                id: 'zip', 
+                name: 'ZIP解凍', 
+                path: 'src/apps/zip/index.html', 
+                icon: '📦', 
+                iconType: 'emoji',
+                type: 'normal'
+            },
+            { 
+                id: 'ojosama', 
+                name: 'お嬢様変換器', 
+                path: 'src/apps/ojousama/index.html', 
+                icon: '🏰', 
+                iconType: 'emoji',
+                type: 'normal'
+            },
+            { 
+                id: 'perplexity', 
+                name: 'Perplexity', 
+                path: 'https://www.perplexity.ai/', 
+                icon: 'src/linkicon/perplexity.png', 
+                iconType: 'image', 
+                type: 'iframe',  // iframeで外部サイトを埋め込むタイプ
+                directRedirect: true 
+            }
         ];
         
         this.initializeApplications();
@@ -129,13 +233,13 @@ class ApplicationManager {
 
     // アプリケーションの起動
     launchApplication(app) {
-        if (app.directRedirect) {
-            // 直接リダイレクトする場合
+        if (app.type === 'iframe' && app.directRedirect) {
+            // iframeタイプで直接リダイレクトが指定されている場合
             window.location.href = app.path;
             return;
         }
 
-        // 通常のアプリケーション起動処理
+        // 通常のアプリケーション起動処理（normal, react, iframeタイプ共通）
         const windowId = windowManager.createWindow(app);
         taskbarManager.addTaskbarItem(windowId, {
             ...app,
