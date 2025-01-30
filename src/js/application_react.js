@@ -21,19 +21,51 @@ class ReactApplicationManager {
             const iframe = window.querySelector('iframe');
             if (!iframe) return;
 
-            // Reactアプリケーションのパスを設定
-            iframe.src = app.path;
+            // iframeのContent-Typeヘッダーを設定
+            iframe.onload = () => {
+                try {
+                    // iframeのドキュメントにスタイルを適用
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    
+                    // メタタグでContent-Typeを設定
+                    const meta = document.createElement('meta');
+                    meta.httpEquiv = 'Content-Type';
+                    meta.content = 'text/html; charset=utf-8';
+                    iframeDoc.head.appendChild(meta);
 
-            // iframeのロードイベントを監視
-            iframe.addEventListener('load', () => {
-                console.log(`React application ${app.name} loaded successfully`);
-            });
+                    // スクリプトタグの設定
+                    const script = document.createElement('script');
+                    script.type = 'module';
+                    script.src = app.path;
+                    iframeDoc.body.appendChild(script);
 
-            // エラーハンドリング
-            iframe.addEventListener('error', (error) => {
-                console.error(`Error loading React application ${app.name}:`, error);
-                AppNotification.show('エラー', 'アプリケーションの読み込みに失敗しました。', 'error');
-            });
+                    // CSSの読み込み
+                    const link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.type = 'text/css';
+                    link.href = app.cssPath || `${app.path.replace('.js', '.css')}`;
+                    iframeDoc.head.appendChild(link);
+
+                    console.log(`React application ${app.name} loaded successfully`);
+                } catch (error) {
+                    console.error(`Error setting up React application ${app.name}:`, error);
+                    AppNotification.show('エラー', 'アプリケーションの設定に失敗しました。', 'error');
+                }
+            };
+
+            // 初期HTMLを設定
+            iframe.srcdoc = `
+                <!DOCTYPE html>
+                <html>
+                    <head>
+                        <meta charset="utf-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    </head>
+                    <body>
+                        <div id="root"></div>
+                    </body>
+                </html>
+            `;
 
         } catch (error) {
             console.error('React application launch error:', error);
@@ -47,6 +79,7 @@ class ReactApplicationManager {
         if (window) {
             const iframe = window.querySelector('iframe');
             if (iframe) {
+                iframe.srcdoc = '';
                 iframe.src = 'about:blank';
             }
         }
