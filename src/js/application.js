@@ -115,7 +115,7 @@ class ApplicationManager {
                 path: 'src/apps/ojousama/index.html', 
                 icon: '🏰', 
                 iconType: 'emoji',
-                type: 'normal'
+                type: 'react'
             },
             { 
                 id: 'perplexity', 
