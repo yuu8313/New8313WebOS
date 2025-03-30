@@ -17,37 +17,6 @@ class WindowsSystem {
         this.activeWindow = window;
     }
 
-    // ウィンドウのスナップ機能
-    handleWindowSnap(window, x, y) {
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
-
-        // 画面端でのスナップ判定
-        if (x < 10) { // 左端
-            this.snapWindowToLeft(window);
-        } else if (x > screenWidth - 10) { // 右端
-            this.snapWindowToRight(window);
-        } else if (y < 10) { // 上端
-            this.maximizeWindow(window);
-        }
-    }
-
-    // 左半分にスナップ
-    snapWindowToLeft(window) {
-        window.style.left = '0';
-        window.style.top = '0';
-        window.style.width = '50%';
-        window.style.height = '100%';
-    }
-
-    // 右半分にスナップ
-    snapWindowToRight(window) {
-        window.style.left = '50%';
-        window.style.top = '0';
-        window.style.width = '50%';
-        window.style.height = '100%';
-    }
-
     // ウィンドウの最大化
     maximizeWindow(window) {
         if (!window.dataset.isMaximized) {
