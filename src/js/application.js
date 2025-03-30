@@ -5,6 +5,7 @@
 class ApplicationManager {
     constructor() {
         this.apps = [
+            { id: 'oroeiatukai', name: '操作アドバイス', path: 'src/apps/otoridome/index.html', icon: '📋', iconType: 'emoji' },
             { id: 'kensaku', name: '8313複合検索エンジン', path: 'src/apps/8313kensaku/index.html', icon: 'src/image/icon1.png', iconType: 'image' },
             { id: 'dentaku', name: '計算機', path: 'src/apps/keisan/index.html', icon: 'src/image/icon3.png', iconType: 'image' },
             { id: 'memotyou', name: 'メモ帳', path: 'src/apps/memo/index.html', icon: 'src/image/icon27.png', iconType: 'image' },
