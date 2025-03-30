@@ -125,9 +125,6 @@ class WindowManager {
                 
                 window.style.left = `${initialX + dx}px`;
                 window.style.top = `${initialY + dy}px`;
-
-                // スナップ機能の判定
-                windowsSystem.handleWindowSnap(window, e.clientX, e.clientY);
             };
 
             const mouseUpHandler = () => {
